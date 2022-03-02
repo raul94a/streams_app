@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "855780855718",
+    "project_id": "stream-2dam",
+    "storage_bucket": "stream-2dam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855780855718:android:c05c06e3b3e6651060c967",
+        "android_client_info": {
+          "package_name": "com.example.streams_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855780855718-cg70n1ujpf6n4oh6lkiu0qtd8ofggnu7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSvKxBPv9PTdgjzUbIYaRK5szr2i4oQgc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855780855718-cg70n1ujpf6n4oh6lkiu0qtd8ofggnu7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
