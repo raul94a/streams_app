@@ -36,11 +36,15 @@ class MyHomePage extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.75,
                       child: ElevatedButton(
                           onPressed: () async {
+                            if (controlTexto.text.isEmpty ||
+                                controlTexto.text.length > 20) {
+                              return;
+                            }
                             firestore.collection('frases').add({
                               'frase': controlTexto.text,
                               'fecha': Timestamp.now()
                             });
-                            Navigator.of(context);
+                            Navigator.of(context).pop();
                           },
                           child: Text('Enviar')),
                     )
@@ -120,9 +124,14 @@ class FrasesMolonas extends StatelessWidget {
           var horas =
               dateFormatter.DateFormat('HH:mm:SS').format(timestamp.toDate());
 
-          return Text(
-            '$frase dicha en el ${fecha} a las $horas',
-            overflow: TextOverflow.ellipsis,
+          return Container(
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(border: Border.all(color:Color.fromARGB(99, 6, 18, 37))),
+            child: Text(
+              '${i}. $frase',
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+              overflow: TextOverflow.ellipsis,
+            ),
           );
         });
   }
