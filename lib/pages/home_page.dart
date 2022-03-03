@@ -8,7 +8,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
-    var stream = firestore.collection('frases').snapshots();
+    var stream = firestore.collection('frases').orderBy('fecha',descending: true).snapshots();
     var controlTexto = TextEditingController();
     //logica de insercion de documento en firestore
     _onPressFloatingActionButton() {
@@ -37,7 +37,7 @@ class MyHomePage extends StatelessWidget {
                       child: ElevatedButton(
                           onPressed: () async {
                             if (controlTexto.text.isEmpty ||
-                                controlTexto.text.length > 20) {
+                                controlTexto.text.length > 40) {
                               return;
                             }
                             firestore.collection('frases').add({
@@ -126,9 +126,10 @@ class FrasesMolonas extends StatelessWidget {
 
           return Container(
             padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(border: Border.all(color:Color.fromARGB(99, 6, 18, 37))),
+            decoration: BoxDecoration(
+                border: Border.all(color: Color.fromARGB(99, 6, 18, 37))),
             child: Text(
-              '${i}. $frase',
+              '${i+1}. $frase',
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
               overflow: TextOverflow.ellipsis,
             ),
